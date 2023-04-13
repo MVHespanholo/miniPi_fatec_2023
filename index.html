@@ -20,6 +20,8 @@
       <div id="login">
         <form action="login.php" method="POST">
           <h1>Login</h1> 
+          <!--Cria um parágrafo com um rótulo de e-mail e uma caixa de entrada de texto com um ID "nome_login", um nome "email_login",
+             a opção "required" para indicar que é obrigatório preencher o campo e um texto de exemplo no atributo "placeholder".-->
           <p> 
             <label for="nome_login">Seu e-mail</label>
             <input id="nome_login" name="email_login" required="required" type="text" placeholder="ex. contato@htmlecsspro.com"/>
@@ -38,7 +40,7 @@
           <p> 
             <input type="submit" value="Logar" /> 
           </p>
-           
+          <!-- Cria um parágrafo com um link para a seção de cadastro com um ID "paracadastro". A classe "link" é adicionada para o estilo -->
           <p class="link">
             Ainda não tem conta?
             <a href="#paracadastro">Cadastre-se</a>
@@ -48,6 +50,8 @@
  
       <!--FORMULÁRIO DE CADASTRO-->
       <div id="cadastro">
+        <!--É o início do formulário que enviará os dados para o arquivo PHP registro.php quando o usuário clicar em "Cadastrar".
+           O método utilizado é o POST.-->
         <form action="registro.php" method="POST">
           <h1>Cadastro</h1> 
            
@@ -65,7 +69,7 @@
             <label for="senha_cad">Sua senha</label>
             <input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="ex. 1234"/>
           </p>
-           
+           <!--Um botão para enviar o formulário. Quando clicado, o formulário é enviado para o arquivo registro.php-->
           <p> 
             <input type="submit" value="Cadastrar"/> 
           </p>

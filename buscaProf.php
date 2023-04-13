@@ -14,18 +14,17 @@ if($received_data->query != '') # verifica se a propriedade query do objeto
 {
 	#  constrói uma consulta SQL para buscar registros na tabela
 	$query = "
-	SELECT * FROM fatec_alunos 
-	WHERE first_name LIKE '%".$received_data->query."%' 
-	OR last_name LIKE '%".$received_data->query."%' 
-	ORDER BY id DESC
+	SELECT * FROM fatec_professores 
+	WHERE salario LIKE '%".$received_data->query."%' 
+	ORDER BY salario DESC
 	";
 }
 else	# caso a propriedade query seja uma string vazia, executa uma
-		# consulta SQL que retorna todos os registros da tabela fatec_alunos.
+		# consulta SQL que retorna todos os registros da tabela fatec_professores.
 {
 	$query = "
-	SELECT * FROM fatec_alunos 
-	ORDER BY id DESC
+	SELECT * FROM fatec_professores 
+	ORDER BY salario DESC
 	";
 }
 

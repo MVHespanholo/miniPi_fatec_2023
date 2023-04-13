@@ -1,5 +1,8 @@
+/*
+define a família de fontes como Arial, sans-serif, e define a margem como 0
+*/
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif; 
   margin: 0;
 }
 
@@ -23,7 +26,10 @@ main {
   flex-direction: column;
   align-items: normal;
 }
-
+/*
+define a margem, o preenchimento, a borda, o raio da borda, a cor do plano de fundo,
+a cor do texto, o tamanho da fonte e o cursor para o ponteiro
+*/
 button {
   margin: 10px;
   padding: 10px 20px;
@@ -34,11 +40,15 @@ button {
   font-size: 18px;
   cursor: pointer;
 }
-
+/*
+altera a cor do plano de fundo para #0069d9 quando o botão passa o mouse sobre.
+*/
 button:hover {
   background-color: #0069d9;
 }
-
+/*
+remove o contorno quando o botão está focado
+*/
 button:focus {
   outline: none;
 }
@@ -73,7 +83,10 @@ label {
 	font-weight: bold;
 	margin-bottom: 5px;
 }
-
+/*
+define a largura como 100%, o preenchimento para 10px, a margem inferior para 20px,
+a borda como 1px #ccc sólido e o raio da borda para 5px.
+*/
 input[type="email"],
 input[type="password"],
 input[type="text"] {

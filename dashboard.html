@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <!--O título é definido como "Sistema Fatec Franca - 2023". 
+    Duas folhas de estilo são definidas, uma do FontAwesome e outra chamada "style.css".-->
   <head>
     <meta charset="UTF-8" />
     <title>Sistema Fatec Franca - 2023</title>
@@ -13,8 +15,12 @@
     <header>
       <h1>Sistema Fatec Franca - 2023</h1>
     </header>
+    <!-- O elemento "main" contém uma div com classe "container", que contém dois botões. Quando cada botão
+     é clicado, uma função JavaScript é executada usando o Vue -->
     <main>
       <div class="container">
+        <button @click="goToCadastroProf">Cadastro de Professores</button>
+        <button @click="goToBuscaProf">Busca de Professores</button>
         <button @click="goToCadastroAlunos">Cadastro de Alunos</button>
         <button @click="goToBuscaAlunos">Busca de Alunos</button>
       </div>
@@ -23,10 +29,19 @@
   </body>
 </html>
 
+<!--O objeto é definido com o seletor "el" apontando para o elemento "main" da página HTML. 
+Existem duas funções definidas dentro do objeto que são chamadas pelos botões na página.
+Cada função usa o método "window.open" para abrir uma nova janela do navegador com o arquivo HTML correspondente.-->
 <script>
   new Vue({
     el: "main",
     methods: {
+      goToCadastroProf() {
+        window.open("cadastroProf.html", "_blank");
+      },
+      goToBuscaProf() {
+        window.open("buscaProf.html", "_blank");
+      },
       goToCadastroAlunos() {
         window.open("cadastroAlunos.html", "_blank");
       },

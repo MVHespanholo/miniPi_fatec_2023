@@ -11,8 +11,8 @@ $data = array();
 # tabela "fatec_alunos" e os ordenará por ID em ordem decrescente
 if ($received_data->action == 'fetchall') {
     $query = "
- SELECT * FROM fatec_alunos 
- ORDER BY id DESC
+ SELECT * FROM fatec_professores 
+ ORDER BY salario DESC
  ";
     $statement = $connect->prepare($query);
     $statement->execute();
@@ -27,14 +27,16 @@ if ($received_data->action == 'fetchall') {
 # Em seguida, um array de saída é criado com uma mensagem de confirmação informando que o aluno foi adicionado com sucesso, e este array é convertido em formato JSON e exibido no navegador.
 if ($received_data->action == 'insert') {
     $data = array(
-        ':first_name' => $received_data->firstName,
-        ':last_name' => $received_data->lastName
+        ':nome' => $received_data->nome,
+        ':endereco' => $received_data->endereco,
+        ':curso' => $received_data->curso,
+        ':salario' => $received_data->salario
     );
 
     $query = "
- INSERT INTO fatec_alunos 
- (first_name, last_name) 
- VALUES (:first_name, :last_name)
+ INSERT INTO fatec_professores 
+ (nome, endereco, curso, salario) 
+ VALUES (:nome, :endereco, :curso, :salario)
  ";
 
     $statement = $connect->prepare($query);
@@ -42,14 +44,14 @@ if ($received_data->action == 'insert') {
     $statement->execute($data);
 
     $output = array(
-        'message' => 'Aluno Adicionado'
+        'message' => 'Professor Adicionado'
     );
 
     echo json_encode($output);
 }
 if ($received_data->action == 'fetchSingle') {
     $query = "
- SELECT * FROM fatec_alunos 
+ SELECT * FROM fatec_professores 
  WHERE id = '" . $received_data->id . "'
  ";
 
@@ -61,8 +63,10 @@ if ($received_data->action == 'fetchSingle') {
 
     foreach ($result as $row) {
         $data['id'] = $row['id'];
-        $data['first_name'] = $row['first_name'];
-        $data['last_name'] = $row['last_name'];
+        $data['nome'] = $row['nome'];
+        $data['endereco'] = $row['endereco'];
+        $data['curso'] = $row['curso'];
+        $data['salario'] = $row['salario'];
     }
 
     echo json_encode($data);
@@ -71,15 +75,19 @@ if ($received_data->action == 'fetchSingle') {
 # e executa uma consulta de atualização na tabela 'fatec_alunos'
 if ($received_data->action == 'update') {
     $data = array(
-        ':first_name' => $received_data->firstName,
-        ':last_name' => $received_data->lastName,
+        ':nome' => $received_data->nome,
+        ':endereco' => $received_data->endereco,
+        ':curso' => $received_data->curso,
+        ':salario' => $received_data->salario,
         ':id' => $received_data->hiddenId
     );
 
     $query = "
- UPDATE fatec_alunos 
- SET first_name = :first_name, 
- last_name = :last_name 
+ UPDATE fatec_professores 
+ SET nome = :nome, 
+ endereco = :endereco,
+ curso = :curso,
+ salario = :salario 
  WHERE id = :id
  ";
 
@@ -88,7 +96,7 @@ if ($received_data->action == 'update') {
     $statement->execute($data);
 
     $output = array(
-        'message' => 'Aluno Atualizado'
+        'message' => 'Professor Atualizado'
     );
 
     echo json_encode($output);
@@ -96,7 +104,7 @@ if ($received_data->action == 'update') {
 # executa uma consulta de exclusão na tabela 'fatec_alunos' para excluir o registro com o ID fornecido.
 if ($received_data->action == 'delete') {
     $query = "
- DELETE FROM fatec_alunos 
+ DELETE FROM fatec_professores 
  WHERE id = '" . $received_data->id . "'
  ";
 
@@ -105,7 +113,7 @@ if ($received_data->action == 'delete') {
     $statement->execute();
 
     $output = array(
-        'message' => 'Aluno Deletado'
+        'message' => 'Professor Deletado'
     );
 
     echo json_encode($output);

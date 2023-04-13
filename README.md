@@ -1,26 +1,7 @@
-# Exemplo CRUD com BD Relacional
+Link da api: https://projeto0001335.000webhostapp.com/
 
-Projeto feito em sala de aula para testar o uso de Banco de Dados Relacional.
+https://projeto0001335.000webhostapp.com/dashboard.html
 
-## 🚀 DEMO
 
-[Link para Demo](https://fatec-teste2.000webhostapp.com/)
-
-## 🛠️ Construído com
-
-* [MySQL](https://www.000webhost.com/) - Banco construido com 000Webhost gratuitamente.
-* [PHP](https://www.php.net/) - Linguagem para conexão com banco de dados e execução do CRUD.
-* [VueJS](https://vuejs.org/) - Usada para gerenciar as interações entre páginas
-
-## ✒️ Telas
-
-![Screenshot](Screenshot_1.png)
-
-![Screenshot](Screenshot_2.png)
-
-![Screenshot](Screenshot_3.png)
-
-![Screenshot](Screenshot_4.png)
-
-![Screenshot](Screenshot_5.png)
-
+Tive problemas ao enviar a atividade Nota 3 - Mini PI, o codigo
+basico dessa atividade é o mesmo, estando todo comentado como era pedido na outra avaliação.

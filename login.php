@@ -1,6 +1,8 @@
-<?php
 
-ob_start();
+<?php   #Esse é um código PHP que inicia uma sessão, verifica se o método de requisição é POST e se sim,
+        # obtém o email e senha submetidos pelo formulário. Em seguida, executa uma consulta no banco de dados para verificar se o email e senha são válidos.
+
+ob_start(); // inicio buffer de saída do PHP
 
 session_start(); // Inicia a sessão
 
@@ -11,6 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $senha = $_POST['senha_login'];
 
     // Verifica se o email e senha são válidos
+    // Se a consulta retornar um resultado, ou seja, se o email e senha estiverem corretos, ele salva as informações do usuário na sessão e redireciona para a página de dashboard.
+    // Se não, exibe um alerta e redireciona de volta para a página de login
     $query = "SELECT id, nome FROM fatec_admin WHERE email='$email' AND senha=md5('$senha')";
     $result = mysqli_query($conn, $query);
 
@@ -25,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-ob_end_flush();
+ob_end_flush(); // final buffer de saída do PHP
 
 ?>
 
